@@ -8,21 +8,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        safetyYellow: '#FFC107',
-                        safetyYellowHover: '#e0a800',
-                        darkBg: '#121212',
-                        cardBg: '#1e1e1e',
-                        cardHover: '#252525'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Montserrat', 'sans-serif']
-                    }
-                }
-            }
+            theme: { extend: { colors: {
+                safetyYellow: '#FFC107', safetyYellowHover: '#e0a800',
+                darkBg: '#121212', cardBg: '#1e1e1e', cardHover: '#252525'
+            }, fontFamily: { sans:['Inter','sans-serif'], heading:['Montserrat','sans-serif'] } } }
         }
     </script>
     
@@ -32,325 +21,327 @@
 </head>
 <body class="bg-darkBg text-gray-100 antialiased selection:bg-safetyYellow selection:text-black">
 
-    <!-- ================= HEADER ================= -->
-    <header class="custom-header">
-<div class="header-container">
-    
-    <a href="#" class="logo-link">
-        <img src="img/logo.png" alt="Aleks's Mobile Wheel Service" class="header-logo">
-    </a>
-
-    <nav class="nav-links">
-        <a href="#" class="nav-item active">Home</a>
-        <a href="#services" class="nav-item">Services</a>
-        <a href="#about" class="nav-item">About</a>
-        <a href="#faq" class="nav-item">FAQ</a>
-        <a href="#contact" class="nav-item">Contact</a>
-    </nav>
-
-    <div class="phone-button-wrapper">
-        <a href="tel:+19168606330" class="phone-button">
-            <i class="fa-solid fa-phone"></i>
-            <span>(916) 860-6330</span>
-        </a>
-    </div>
-
-    <!-- Мобильный блок: кнопка телефона + гамбургер -->
-    <div class="mobile-header-right">
-        <a href="tel:+19168606330" class="mobile-phone-btn-header">
-            <i class="fa-solid fa-phone"></i>
-            <span>(916) 860-6330</span>
-        </a>
-        <div class="mobile-menu-btn-wrapper">
-            <button id="menu-toggle" class="hamburger" type="button">
-                <span class="hamburger-line line-top"></span>
-                <span class="hamburger-line line-middle"></span>
-                <span class="hamburger-line line-bottom"></span>
-            </button>
+<!-- HEADER -->
+<header class="custom-header">
+    <div class="header-container">
+        <a href="#" class="logo-link"><img src="img/logo.png" alt="Aleks" class="header-logo"></a>
+        <nav class="nav-links">
+            <a href="#" class="nav-item active">Home</a>
+            <a href="#services" class="nav-item">Services</a>
+            <a href="#about" class="nav-item">About</a>
+            <a href="#faq" class="nav-item">FAQ</a>
+            <a href="#contact" class="nav-item">Contact</a>
+        </nav>
+        <div class="phone-button-wrapper">
+            <a href="tel:+19168606330" class="phone-button"><i class="fa-solid fa-phone"></i><span>(916) 860-6330</span></a>
         </div>
+        <div class="mobile-header-right">
+            <a href="tel:+19168606330" class="mobile-phone-btn-header"><i class="fa-solid fa-phone"></i><span>(916) 860-6330</span></a>
+            <div class="mobile-menu-btn-wrapper">
+                <button id="menu-toggle" class="hamburger" type="button">
+                    <span class="hamburger-line line-top"></span>
+                    <span class="hamburger-line line-middle"></span>
+                    <span class="hamburger-line line-bottom"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu hidden">
+        <a href="#" class="mobile-nav-item active" data-close-menu>Home</a>
+        <a href="#services" class="mobile-nav-item" data-close-menu>Services</a>
+        <a href="#about" class="mobile-nav-item" data-close-menu>About</a>
+        <a href="#faq" class="mobile-nav-item" data-close-menu>FAQ</a>
+        <a href="#contact" class="mobile-nav-item" data-close-menu>Contact</a>
+        <div class="mobile-phone-wrapper">
+            <a href="tel:+19168606330" class="mobile-phone-btn"><i class="fa-solid fa-phone"></i> (916) 860-6330</a>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-container">
+        <div class="hero-grid">
+            <div class="hero-content reveal-left">
+                <h1 class="hero-title">
+                    Mobile Tire & <br><span class="text-safetyYellow">Wheel Service</span>
+                </h1>
+                <p class="hero-slogan">
+                    <span class="text-safetyYellow">Fast. Professional. Convenient.</span>
+                </p>
+                <p class="hero-subtitle">
+                    On-Site Tire, Wheel and Light Mechanical Services — <span class="text-safetyYellow font-bold">We Come To You!</span>
+                </p>
+                <div class="hero-buttons">
+                    <button onclick="openBookingModal()" class="btn-primary"><i class="fa-solid fa-calendar-days"></i> Book a Service</button>
+                    <button onclick="openSmsModal()" class="btn-sms"><i class="fa-solid fa-comment-dots"></i> Text Us</button>
+                    <a href="tel:+19168606330" class="btn-secondary"><i class="fa-solid fa-phone"></i><span>Call Now</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services-section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3 reveal">
+            <h2 class="text-3xl sm:text-4xl font-heading font-black tracking-tight text-white uppercase inline-block border-b-4 border-safetyYellow pb-2">Our Services</h2>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" id="services-grid"></div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-20 bg-[#161616] border-t border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-6 space-y-6 reveal-left">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-safetyYellow rounded-xl flex items-center justify-center text-black font-bold text-xl shadow"><i class="fa-solid fa-location-dot"></i></div>
+                    <h2 class="text-2xl sm:text-3xl font-heading font-black text-white">Mobile Service <br><span class="text-safetyYellow">in Your Area</span></h2>
+                </div>
+                <p class="text-gray-300 text-base leading-relaxed">
+                    Professional, reliable, and convenient service at your home, office, or roadside across Sacramento and surrounding regions.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div class="flex items-center gap-3 bg-cardBg p-3.5 rounded-xl border border-gray-800"><i class="fa-solid fa-check text-safetyYellow text-lg"></i><span class="text-sm font-semibold text-gray-200">Save Time – No Shop Visit Needed</span></div>
+                    <div class="flex items-center gap-3 bg-cardBg p-3.5 rounded-xl border border-gray-800"><i class="fa-solid fa-check text-safetyYellow text-lg"></i><span class="text-sm font-semibold text-gray-200">Professional Equipment</span></div>
+                    <div class="flex items-center gap-3 bg-cardBg p-3.5 rounded-xl border border-gray-800"><i class="fa-solid fa-check text-safetyYellow text-lg"></i><span class="text-sm font-semibold text-gray-200">Quality Service & Parts</span></div>
+                    <div class="flex items-center gap-3 bg-cardBg p-3.5 rounded-xl border border-gray-800"><i class="fa-solid fa-check text-safetyYellow text-lg"></i><span class="text-sm font-semibold text-gray-200">By Appointment / Emergency</span></div>
+                </div>
+            </div>
+            <div class="lg:col-span-6 grid grid-cols-2 gap-4 reveal-right">
+                <div class="rounded-2xl overflow-hidden border-2 border-safetyYellow/40 shadow-xl"><img src="img/about.jpg" alt="About 1" class="w-full h-64 object-cover hover:scale-105 transition duration-500"></div>
+                <div class="rounded-2xl overflow-hidden border-2 border-safetyYellow/40 shadow-xl mt-6"><img src="img/about1.jpg" alt="About 2" class="w-full h-64 object-cover hover:scale-105 transition duration-500"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="py-20 bg-darkBg border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3 reveal">
+            <span class="text-safetyYellow font-bold tracking-widest uppercase text-sm">Portfolio</span>
+            <h2 class="text-3xl sm:text-4xl font-heading font-black text-white">OUR WORK IN ACTION</h2>
+        </div>
+        <div id="work-gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="py-20 bg-[#161616] border-t border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12 space-y-3 reveal">
+            <span class="text-safetyYellow font-bold tracking-widest uppercase text-sm">Testimonials</span>
+            <h2 class="text-3xl sm:text-4xl font-heading font-black text-white">WHAT OUR CLIENTS SAY</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Review 1 - Jake -->
+            <div class="review-card bg-cardBg border border-gray-800 rounded-2xl p-6 shadow-xl reveal flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-safetyYellow/20 rounded-full flex items-center justify-center text-safetyYellow font-bold">J</div>
+                    <div>
+                        <p class="text-white font-bold text-sm">Jake</p>
+                        <div class="flex text-safetyYellow text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="review-text text-gray-300 text-sm leading-relaxed flex-1">
+                    Aleks was great! I had a nail in my tire and didn’t feel safe driving on it, so I was glad he could come to me on a Saturday night. He showed up right on time, was professional the whole way through, and had the flat fixed in about 20–30 minutes. Fast, reliable, and easy to work with. I’d definitely recommend him to anyone who needs a tire repair without the hassle of getting to a shop.
+                </p>
+                <div class="flex items-center justify-between mt-3 gap-2">
+                    <button class="review-toggle hidden text-safetyYellow font-bold text-xs hover:underline">See more...</button>
+                    <a href="https://maps.app.goo.gl/mfx9thVmWzjMF3mP7" target="_blank" rel="noopener noreferrer" class="review-open ml-auto inline-flex items-center gap-1.5 text-xs font-bold text-black bg-safetyYellow hover:bg-safetyYellowHover px-3 py-1.5 rounded-full transition">
+                        Open <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Review 2 - Christopher Samai -->
+            <div class="review-card bg-cardBg border border-gray-800 rounded-2xl p-6 shadow-xl reveal flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-safetyYellow/20 rounded-full flex items-center justify-center text-safetyYellow font-bold">C</div>
+                    <div>
+                        <p class="text-white font-bold text-sm">Christopher Samai</p>
+                        <div class="flex text-safetyYellow text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="review-text text-gray-300 text-sm leading-relaxed flex-1">
+                    Aleks came to the rescue after a tire of mine had a hole popped in it. The only place open at 7PM was him, and he 100% delivered.
+
+Between call and arrival it was maybe 10 minutes. The price was fair, especially for such convenient mobile service. It’s not easy to find someone who is both skilled and honest, but this was exactly that. I highly recommend this service to anyone looking for a professional tire repair, and balancing. He moves with speed, precision and excellence ... I could tell he was beyond experienced at what he does. Well worth the cost.
+                </p>
+                <div class="flex items-center justify-between mt-3 gap-2">
+                    <button class="review-toggle hidden text-safetyYellow font-bold text-xs hover:underline">See more...</button>
+                    <a href="https://maps.app.goo.gl/j2dMfXDcAVbKucTV7" target="_blank" rel="noopener noreferrer" class="review-open ml-auto inline-flex items-center gap-1.5 text-xs font-bold text-black bg-safetyYellow hover:bg-safetyYellowHover px-3 py-1.5 rounded-full transition">
+                        Open <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Review 3 - Natali Mukhamedova -->
+            <div class="review-card bg-cardBg border border-gray-800 rounded-2xl p-6 shadow-xl reveal flex flex-col">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-safetyYellow/20 rounded-full flex items-center justify-center text-safetyYellow font-bold">N</div>
+                    <div>
+                        <p class="text-white font-bold text-sm">Natali Mukhamedova</p>
+                        <div class="flex text-safetyYellow text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="review-text text-gray-300 text-sm leading-relaxed flex-1">
+                    I had an excellent experience with this mobile tire service! He came to my location right on time and did an outstanding job. He mounted and balanced all four tires professionally, worked quickly, and paid great attention to every detail. Everything was done with high-quality equipment, and the whole process was smooth and efficient.
+
+The price was very fair, especially for such convenient mobile service. It’s not easy to find someone who is both skilled and honest, but this was exactly that. I highly recommend this service to anyone looking for professional tire installation and balancing. I will definitely use them again. Thank you for the excellent work!
+                </p>
+                <div class="flex items-center justify-between mt-3 gap-2">
+                    <button class="review-toggle hidden text-safetyYellow font-bold text-xs hover:underline">See more...</button>
+                    <a href="https://maps.app.goo.gl/nWiSW26JdBq6pRXY8" target="_blank" rel="noopener noreferrer" class="review-open ml-auto inline-flex items-center gap-1.5 text-xs font-bold text-black bg-safetyYellow hover:bg-safetyYellowHover px-3 py-1.5 rounded-full transition">
+                        Open <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-20 bg-darkBg">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 space-y-3 reveal">
+            <span class="text-safetyYellow font-bold tracking-widest uppercase text-sm">Got Questions?</span>
+            <h2 class="text-3xl sm:text-4xl font-heading font-black text-white">FREQUENTLY ASKED QUESTIONS</h2>
+        </div>
+        <div class="space-y-4 reveal">
+            <div class="bg-cardBg border border-gray-800 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(1)" class="w-full p-5 text-left font-bold text-white flex justify-between items-center hover:text-safetyYellow transition"><span>How does mobile tire service work?</span><i id="faq-icon-1" class="fa-solid fa-chevron-down transition transform"></i></button>
+                <div id="faq-content-1" class="hidden px-5 pb-5 text-sm text-gray-400 leading-relaxed border-t border-gray-800 pt-3">We bring the tire shop directly to you! Book an appointment, and our fully equipped service van arrives at your location to mount, balance, or repair tires right where you parked.</div>
+            </div>
+            <div class="bg-cardBg border border-gray-800 rounded-xl overflow-hidden">
+                <button onclick="toggleFaq(2)" class="w-full p-5 text-left font-bold text-white flex justify-between items-center hover:text-safetyYellow transition"><span>What areas do you serve?</span><i id="faq-icon-2" class="fa-solid fa-chevron-down transition transform"></i></button>
+                <div id="faq-content-2" class="hidden px-5 pb-5 text-sm text-gray-400 leading-relaxed border-t border-gray-800 pt-3">We proudly serve Sacramento and surrounding areas, providing prompt mobile roadside and driveway assistance.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact" class="bg-[#0e0e0e] border-t border-gray-800 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center text-center md:text-left">
+            <div>
+                <img src="img/logo.png" alt="Logo" class="h-12 mx-auto md:mx-0 mb-4 object-contain">
+                <p class="text-sm text-gray-400">Professional mobile tire and mechanic service. WE COME TO YOU!</p>
+            </div>
+            <div class="space-y-2 text-sm text-gray-300">
+                <p class="flex items-center justify-center md:justify-start gap-2"><i class="fa-solid fa-phone text-safetyYellow"></i> <a href="tel:+19168606330" class="hover:text-white font-bold">+1 (916) 860-6330</a></p>
+                <p class="flex items-center justify-center md:justify-start gap-2"><i class="fa-solid fa-comment-dots text-safetyYellow"></i> <a href="#" onclick="openSmsModal(); return false;" class="hover:text-white font-bold">Text Us</a></p>
+                <p class="flex items-center justify-center md:justify-start gap-2"><i class="fa-solid fa-envelope text-safetyYellow"></i> <a href="mailto:aleksmws@gmail.com" class="hover:text-white">aleksmws@gmail.com</a></p>
+                <p class="flex items-center justify-center md:justify-start gap-2"><i class="fa-brands fa-instagram text-safetyYellow"></i><a href="https://www.instagram.com/alekssmobilewheel" target="_blank" rel="noopener noreferrer" class="hover:text-white">@alekssmobilewheel</a></p>
+            </div>
+            <div class="text-center md:text-right">
+                <button onclick="openBookingModal()" class="bg-safetyYellow hover:bg-safetyYellowHover text-black font-extrabold px-6 py-3 rounded-xl shadow transition">Book a Service Today</button>
+            </div>
+        </div>
+        <div class="mt-12 pt-8 border-t border-gray-900 text-center">
+            <p class="text-xs text-gray-500">&copy; 2026 Aleks's Mobile Wheel Service. All rights reserved.</p>
+            <p class="text-xs text-gray-600 mt-2">Made by <span class="text-gray-400">David Kalaidzhan</span></p>
+        </div>
+    </div>
+</footer>
+
+<button id="scrollTopBtn" class="scroll-top-btn" type="button"><i class="fa-solid fa-arrow-up"></i></button>
+
+<!-- BOOKING MODAL -->
+<div id="booking-modal" class="booking-modal hidden">
+    <div class="booking-modal-content">
+        <button onclick="closeBookingModal()" class="booking-modal-close" type="button"><i class="fa-solid fa-xmark"></i></button>
+        <div class="mb-6">
+            <span class="text-safetyYellow text-xs font-bold uppercase tracking-wider">Fast Mobile Dispatch</span>
+            <h3 class="font-heading font-bold text-2xl text-white mt-1">Book a Service</h3>
+        </div>
+        <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-4">
+            <div>
+                <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Your Name</label>
+                <input type="text" id="b-name" required class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="John Doe">
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Phone Number</label>
+                    <input type="tel" id="b-phone" required class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="(916) 000-0000">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Service Needed</label>
+                    <select id="b-service" onchange="toggleOtherService()" class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow">
+                        <option value="Selection & Sale of New Tires">Selection & Sale of New Tires</option>
+                        <option value="Tire Mounting & Demounting">Tire Mounting & Demounting</option>
+                        <option value="Wheel Balancing">Wheel Balancing</option>
+                        <option value="TPMS Replacement & Programming">TPMS Replacement & Programming</option>
+                        <option value="Computer Diagnostics">Computer Diagnostics</option>
+                        <option value="Brake Pads & Rotor Replacement">Brake Pads & Rotor Replacement</option>
+                        <option value="Suspension Repair & Component Replacement">Suspension Repair & Component Replacement</option>
+                        <option value="Oil Change">Oil Change</option>
+                        <option value="Other">Other / Custom Problem</option>
+                    </select>
+                </div>
+            </div>
+            <div id="other-service-wrapper" class="hidden">
+                <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Describe Your Problem</label>
+                <textarea id="b-other-service" rows="3" class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow resize-none" placeholder="Tell us what's wrong with your car..."></textarea>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Address / Location</label>
+                <input type="text" id="b-location" required class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="Sacramento area">
+            </div>
+            <div>
+                <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Preferred Date</label>
+                <div id="booking-calendar"></div>
+            </div>
+            <button type="submit" class="w-full bg-safetyYellow hover:bg-safetyYellowHover text-black font-extrabold py-3.5 rounded-xl shadow transition mt-2 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-comment-dots"></i> Send via SMS
+            </button>
+        </form>
     </div>
 </div>
 
-        <div id="mobile-menu" class="mobile-menu hidden">
-            <a href="#" class="mobile-nav-item active" data-close-menu>Home</a>
-            <a href="#services" class="mobile-nav-item" data-close-menu>Services</a>
-            <a href="#about" class="mobile-nav-item" data-close-menu>About</a>
-            <a href="#faq" class="mobile-nav-item" data-close-menu>FAQ</a>
-            <a href="#contact" class="mobile-nav-item" data-close-menu>Contact</a>
-            <div class="mobile-phone-wrapper">
-                <a href="tel:+19168606330" class="mobile-phone-btn">
-                    <i class="fa-solid fa-phone"></i> (916) 860-6330
-                </a>
-            </div>
+<!-- SMS MODAL -->
+<div id="sms-modal" class="booking-modal hidden">
+    <div class="booking-modal-content">
+        <button onclick="closeSmsModal()" class="booking-modal-close" type="button"><i class="fa-solid fa-xmark"></i></button>
+        <div class="mb-6">
+            <span class="text-safetyYellow text-xs font-bold uppercase tracking-wider">Quick Message</span>
+            <h3 class="font-heading font-bold text-2xl text-white mt-1">Text Us About Your Car</h3>
+            <p class="text-gray-400 text-xs mt-1">Fill this out — your SMS app will open with the message ready.</p>
         </div>
-    </header>
-
-    <!-- ================= HERO ================= -->
-    <section class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="hero-container">
-            <div class="hero-grid">
-                <div class="hero-content reveal-left">
-                    <h1 class="hero-title">
-                        Mobile Tire & <br>
-                        <span class="text-safetyYellow">Wheel Service</span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        On-Site Tire, Wheel and Light Mechanical Services — <span class="text-safetyYellow font-bold">We Come To You!</span>
-                    </p>
-                    <div class="hero-buttons">
-                        <button onclick="openBookingModal()" class="btn-primary">
-                            <i class="fa-solid fa-calendar-days"></i> Book a Service
-                        </button>
-                        <a href="tel:+19168606330" class="btn-secondary">
-                            <i class="fa-solid fa-phone"></i>
-                            <span>Call Now</span>
-                        </a>
-                    </div>
-                </div>
+        <form id="sms-form" onsubmit="handleSmsSubmit(event)" class="space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+                <div><label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Brand</label><input type="text" id="sms-brand" required class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="e.g. Toyota"></div>
+                <div><label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Model</label><input type="text" id="sms-model" required class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="e.g. Camry"></div>
             </div>
-        </div>
-    </section>
-
-    <!-- ================= SERVICES ================= -->
-    <section id="services" class="services-section">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3 reveal">
-                <h2 class="text-3xl sm:text-4xl font-heading font-black tracking-tight text-white uppercase inline-block border-b-4 border-safetyYellow pb-2">
-                    Our Services
-                </h2>
+            <div><label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Year</label><input type="number" id="sms-year" required min="1900" max="2030" class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="e.g. 2018"></div>
+            <div><label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Problem Description</label><textarea id="sms-problem" required rows="3" class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow resize-none" placeholder="Describe the issue..."></textarea></div>
+            <div>
+                <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Preferred Date</label>
+                <div id="sms-calendar"></div>
             </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                <div onclick="openBookingModal('Selection & Sale of New Tires')" class="bg-cardBg hover:bg-cardHover border border-gray-800 hover:border-safetyYellow p-6 rounded-2xl text-center transition duration-300 shadow-md cursor-pointer group reveal">
-                    <div class="w-14 h-14 mx-auto bg-safetyYellow/10 text-safetyYellow rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-safetyYellow group-hover:text-black transition shadow-inner">
-                        <i class="fa-solid fa-circle-notch"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-sm sm:text-base text-white">Selection & Sale of New Tires</h3>
-                </div>
-                <div onclick="openBookingModal('Tire Mounting & Demounting')" class="bg-cardBg hover:bg-cardHover border border-gray-800 hover:border-safetyYellow p-6 rounded-2xl text-center transition duration-300 shadow-md cursor-pointer group reveal">
-                    <div class="w-14 h-14 mx-auto bg-safetyYellow/10 text-safetyYellow rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-safetyYellow group-hover:text-black transition shadow-inner">
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-sm sm:text-base text-white">Tire Mounting & Demounting</h3>
-                </div>
-                <div onclick="openBookingModal('Wheel Balancing')" class="bg-cardBg hover:bg-cardHover border border-gray-800 hover:border-safetyYellow p-6 rounded-2xl text-center transition duration-300 shadow-md cursor-pointer group reveal">
-                    <div class="w-14 h-14 mx-auto bg-safetyYellow/10 text-safetyYellow rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-safetyYellow group-hover:text-black transition shadow-inner">
-                        <i class="fa-solid fa-circle-dot"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-sm sm:text-base text-white">Wheel Balancing</h3>
-                </div>
-                <div onclick="openBookingModal('TPMS Replacement & Programming')" class="bg-cardBg hover:bg-cardHover border border-gray-800 hover:border-safetyYellow p-6 rounded-2xl text-center transition duration-300 shadow-md cursor-pointer group reveal">
-                    <div class="w-14 h-14 mx-auto bg-safetyYellow/10 text-safetyYellow rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-safetyYellow group-hover:text-black transition shadow-inner">
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-sm sm:text-base text-white">TPMS Replacement & Programming</h3>
-                </div>
-                <div onclick="openBookingModal('Computer Diagnostics')" class="bg-cardBg hover:bg-cardHover border border-gray-800 hover:border-safetyYellow p-6 rounded-2xl text-center transition duration-300 shadow-md cursor-pointer group reveal">
-                    <div class="w-14 h-14 mx-auto bg-safetyYellow/10 text-safetyYellow rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-safetyYellow group-hover:text-black transition shadow-inner">
-                        <i class="fa-solid fa-laptop-code"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-sm sm:text-base text-white">Computer Diagnostics</h3>
-                </div>
-                <div onclick="openBookingModal('Brake Pads & Rotor Replacement')" class="bg-cardBg hover:bg-cardHover border border-gray-800 hover:border-safetyYellow p-6 rounded-2xl text-center transition duration-300 shadow-md cursor-pointer group reveal">
-                    <div class="w-14 h-14 mx-auto bg-safetyYellow/10 text-safetyYellow rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-safetyYellow group-hover:text-black transition shadow-inner">
-                        <i class="fa-solid fa-car-burst"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-sm sm:text-base text-white">Brake Pads & Rotor Replacement</h3>
-                </div>
-                <div onclick="openBookingModal('Suspension Repair')" class="bg-cardBg hover:bg-cardHover border border-gray-800 hover:border-safetyYellow p-6 rounded-2xl text-center transition duration-300 shadow-md cursor-pointer group reveal">
-                    <div class="w-14 h-14 mx-auto bg-safetyYellow/10 text-safetyYellow rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-safetyYellow group-hover:text-black transition shadow-inner">
-                        <i class="fa-solid fa-car-side"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-sm sm:text-base text-white">Suspension Repair & Component Replacement</h3>
-                </div>
-                <div onclick="openBookingModal('Oil Change')" class="bg-cardBg hover:bg-cardHover border border-gray-800 hover:border-safetyYellow p-6 rounded-2xl text-center transition duration-300 shadow-md cursor-pointer group reveal">
-                    <div class="w-14 h-14 mx-auto bg-safetyYellow/10 text-safetyYellow rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-safetyYellow group-hover:text-black transition shadow-inner">
-                        <i class="fa-solid fa-oil-can"></i>
-                    </div>
-                    <h3 class="font-heading font-bold text-sm sm:text-base text-white">Oil Change</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= ABOUT ================= -->
-    <section id="about" class="py-20 bg-[#161616] border-t border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-6 space-y-6 reveal-left">
-                    <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 bg-safetyYellow rounded-xl flex items-center justify-center text-black font-bold text-xl shadow">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <h2 class="text-2xl sm:text-3xl font-heading font-black text-white">
-                            Mobile Service <br><span class="text-safetyYellow">in Your Area</span>
-                        </h2>
-                    </div>
-                    <p class="text-gray-300 text-base leading-relaxed">
-                        Professional, reliable, and convenient service at your home, office, or roadside across Sacramento and surrounding regions.
-                    </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                        <div class="flex items-center gap-3 bg-cardBg p-3.5 rounded-xl border border-gray-800">
-                            <i class="fa-solid fa-check text-safetyYellow text-lg"></i>
-                            <span class="text-sm font-semibold text-gray-200">Save Time – No Shop Visit Needed</span>
-                        </div>
-                        <div class="flex items-center gap-3 bg-cardBg p-3.5 rounded-xl border border-gray-800">
-                            <i class="fa-solid fa-check text-safetyYellow text-lg"></i>
-                            <span class="text-sm font-semibold text-gray-200">Professional Equipment</span>
-                        </div>
-                        <div class="flex items-center gap-3 bg-cardBg p-3.5 rounded-xl border border-gray-800">
-                            <i class="fa-solid fa-check text-safetyYellow text-lg"></i>
-                            <span class="text-sm font-semibold text-gray-200">Quality Service & Parts</span>
-                        </div>
-                        <div class="flex items-center gap-3 bg-cardBg p-3.5 rounded-xl border border-gray-800">
-                            <i class="fa-solid fa-check text-safetyYellow text-lg"></i>
-                            <span class="text-sm font-semibold text-gray-200">By Appointment / Emergency</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:col-span-6 grid grid-cols-2 gap-4 reveal-right">
-                    <div class="rounded-2xl overflow-hidden border-2 border-safetyYellow/40 shadow-xl">
-                        <img src="img/about.jpg" alt="About Mobile Service 1" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
-                    </div>
-                    <div class="rounded-2xl overflow-hidden border-2 border-safetyYellow/40 shadow-xl mt-6">
-                        <img src="img/about1.jpg" alt="About Mobile Service 2" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= OUR WORK (АВТО-ГАЛЕРЕЯ) ================= -->
-    <section id="work" class="py-20 bg-darkBg border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3 reveal">
-                <span class="text-safetyYellow font-bold tracking-widest uppercase text-sm">Portfolio</span>
-                <h2 class="text-3xl sm:text-4xl font-heading font-black text-white">OUR WORK IN ACTION</h2>
-            </div>
-            <div id="work-gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Фото подставляются автоматически из script.js -->
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= FAQ ================= -->
-    <section id="faq" class="py-20 bg-darkBg">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 space-y-3 reveal">
-                <span class="text-safetyYellow font-bold tracking-widest uppercase text-sm">Got Questions?</span>
-                <h2 class="text-3xl sm:text-4xl font-heading font-black text-white">FREQUENTLY ASKED QUESTIONS</h2>
-            </div>
-            <div class="space-y-4 reveal">
-                <div class="bg-cardBg border border-gray-800 rounded-xl overflow-hidden">
-                    <button onclick="toggleFaq(1)" class="w-full p-5 text-left font-bold text-white flex justify-between items-center hover:text-safetyYellow transition">
-                        <span>How does mobile tire service work?</span>
-                        <i id="faq-icon-1" class="fa-solid fa-chevron-down transition transform"></i>
-                    </button>
-                    <div id="faq-content-1" class="hidden px-5 pb-5 text-sm text-gray-400 leading-relaxed border-t border-gray-800 pt-3">
-                        We bring the tire shop directly to you! Book an appointment, and our fully equipped service van arrives at your location to mount, balance, or repair tires right where you parked.
-                    </div>
-                </div>
-                <div class="bg-cardBg border border-gray-800 rounded-xl overflow-hidden">
-                    <button onclick="toggleFaq(2)" class="w-full p-5 text-left font-bold text-white flex justify-between items-center hover:text-safetyYellow transition">
-                        <span>What areas do you serve?</span>
-                        <i id="faq-icon-2" class="fa-solid fa-chevron-down transition transform"></i>
-                    </button>
-                    <div id="faq-content-2" class="hidden px-5 pb-5 text-sm text-gray-400 leading-relaxed border-t border-gray-800 pt-3">
-                        We proudly serve Sacramento and surrounding areas, providing prompt mobile roadside and driveway assistance.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= FOOTER ================= -->
-    <footer id="contact" class="bg-[#0e0e0e] border-t border-gray-800 py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center text-center md:text-left">
-                <div>
-                    <img src="img/logo.png" alt="Logo" class="h-12 mx-auto md:mx-0 mb-4 object-contain">
-                    <p class="text-sm text-gray-400">Professional mobile tire and mechanic service. WE COME TO YOU!</p>
-                </div>
-                <div class="space-y-2 text-sm text-gray-300">
-                    <p class="flex items-center justify-center md:justify-start gap-2"><i class="fa-solid fa-phone text-safetyYellow"></i> <a href="tel:+19168606330" class="hover:text-white font-bold">+1 (916) 860-6330</a></p>
-                    <p class="flex items-center justify-center md:justify-start gap-2"><i class="fa-solid fa-envelope text-safetyYellow"></i> <a href="mailto:aleksmws@gmail.com" class="hover:text-white">aleksmws@gmail.com</a></p>
-                    <p class="flex items-center justify-center md:justify-start gap-2">
-                        <i class="fa-brands fa-instagram text-safetyYellow"></i>
-                        <a href="https://www.instagram.com/alekssmobilewheel" target="_blank" rel="noopener noreferrer" class="hover:text-white">@alekssmobilewheel</a>
-                    </p>
-                </div>
-                <div class="text-center md:text-right">
-                    <button onclick="openBookingModal()" class="bg-safetyYellow hover:bg-safetyYellowHover text-black font-extrabold px-6 py-3 rounded-xl shadow transition">
-                        Book a Service Today
-                    </button>
-                </div>
-            </div>
-            <div class="mt-12 pt-8 border-t border-gray-900 text-center">
-                <p class="text-xs text-gray-500">&copy; 2026 Aleks's Mobile Wheel Service. All rights reserved.</p>
-                <p class="text-xs text-gray-600 mt-2">Made by <span class="text-gray-400">David Kalaidzhan</span></p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ================= КНОПКА НАВЕРХ ================= -->
-    <button id="scrollTopBtn" class="scroll-top-btn" type="button">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
-    <!-- ================= МОДАЛКА ================= -->
-    <div id="booking-modal" class="booking-modal hidden">
-        <div class="booking-modal-content">
-            <button onclick="closeBookingModal()" class="booking-modal-close" type="button">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="mb-6">
-                <span class="text-safetyYellow text-xs font-bold uppercase tracking-wider">Fast Mobile Dispatch</span>
-                <h3 class="font-heading font-bold text-2xl text-white mt-1">Book a Service</h3>
-            </div>
-            <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Your Name</label>
-                    <input type="text" id="b-name" required class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="John Doe">
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Phone Number</label>
-                        <input type="tel" id="b-phone" required class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="(916) 000-0000">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Service Needed</label>
-                        <select id="b-service" class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow">
-                            <option>Selection & Sale of New Tires</option>
-                            <option>Tire Mounting & Demounting</option>
-                            <option>Wheel Balancing</option>
-                            <option>TPMS Replacement & Programming</option>
-                            <option>Computer Diagnostics</option>
-                            <option>Brake Pads & Rotor Replacement</option>
-                            <option>Suspension Repair & Component Replacement</option>
-                            <option>Oil Change</option>
-                        </select>
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Address / Location</label>
-                    <input type="text" id="b-location" required class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="Sacramento area">
-                </div>
-                <button type="submit" class="w-full bg-safetyYellow hover:bg-safetyYellowHover text-black font-extrabold py-3.5 rounded-xl shadow transition mt-2">
-                    Submit Request
-                </button>
-            </form>
-        </div>
+            <button type="submit" class="w-full bg-safetyYellow hover:bg-safetyYellowHover text-black font-extrabold py-3.5 rounded-xl shadow transition mt-2 flex items-center justify-center gap-2"><i class="fa-solid fa-comment-dots"></i> Open SMS App</button>
+        </form>
     </div>
+</div>
 
-    <div id="toast" class="toast hidden">
-        <i class="fa-solid fa-circle-check text-safetyYellow text-xl"></i>
-        <div>
-            <h4 class="font-bold text-sm">Request Sent Successfully!</h4>
-            <p class="text-xs text-gray-400">Aleks will call you shortly.</p>
-        </div>
-    </div>
+<div id="toast" class="toast hidden">
+    <i class="fa-solid fa-circle-check text-safetyYellow text-xl"></i>
+    <div><h4 class="font-bold text-sm">Request Sent Successfully!</h4><p class="text-xs text-gray-400">Aleks will call you shortly.</p></div>
+</div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
