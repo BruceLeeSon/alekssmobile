@@ -42,17 +42,13 @@ document.addEventListener('DOMContentLoaded', function() {
     renderServiceCards();
     populateServiceSelect();
 
-    // See more / See less для отзывов
     document.querySelectorAll('.review-card').forEach(card => {
         const text = card.querySelector('.review-text');
         const toggle = card.querySelector('.review-toggle');
         if (!text || !toggle) return;
 
         const isClamped = text.scrollHeight > text.clientHeight + 2;
-
-        if (isClamped) {
-            toggle.classList.remove('hidden');
-        }
+        if (isClamped) toggle.classList.remove('hidden');
 
         toggle.addEventListener('click', () => {
             const expanded = text.classList.toggle('expanded');
@@ -84,20 +80,15 @@ function initCalendar(containerId) {
         const first = new Date(y, m, 1);
         const lastDay = new Date(y, m + 1, 0).getDate();
         const startDow = (first.getDay() + 6) % 7;
-
         const now = new Date();
         const canGoBack = !(y === now.getFullYear() && m === now.getMonth());
 
         let html = `
             <div class="custom-calendar">
                 <div class="cal-header">
-                    <button type="button" class="cal-nav" data-nav="-1" ${canGoBack ? '' : 'disabled'}>
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
+                    <button type="button" class="cal-nav" data-nav="-1" ${canGoBack ? '' : 'disabled'}><i class="fa-solid fa-chevron-left"></i></button>
                     <span>${monthNames[m]} ${y}</span>
-                    <button type="button" class="cal-nav" data-nav="1">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
+                    <button type="button" class="cal-nav" data-nav="1"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
                 <div class="cal-grid">
                     ${dayNames.map(d => `<div class="cal-dow">${d}</div>`).join('')}
@@ -155,18 +146,14 @@ function formatDateForMessage(isoDate) {
     if (!isoDate) return 'Not specified';
     const [y, m, d] = isoDate.split('-');
     const date = new Date(y, m - 1, d);
-    return date.toLocaleDateString('en-US', {
-        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-    });
+    return date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 }
 
 // ==================== КАРТОЧКИ УСЛУГ С МЕДИА ====================
 function renderServiceCards() {
     const grid = document.getElementById('services-grid');
     if (!grid) return;
-
     const services = typeof SERVICES_CONFIG !== 'undefined' ? SERVICES_CONFIG : [];
-
     if (!services.length) {
         grid.innerHTML = '<p class="col-span-full text-center text-gray-500 text-sm">No services configured.</p>';
         return;
@@ -233,23 +220,14 @@ function tryLoadMedia(mediaEl, formatIndex) {
     if (ext === 'mp4' || ext === 'webm') {
         const video = document.createElement('video');
         video.src = src;
-        video.autoplay = true;
-        video.loop = true;
-        video.muted = true;
-        video.playsInline = true;
-        video.onloadeddata = () => {
-            mediaEl.innerHTML = '';
-            mediaEl.appendChild(video);
-        };
+        video.autoplay = true; video.loop = true; video.muted = true; video.playsInline = true;
+        video.onloadeddata = () => { mediaEl.innerHTML = ''; mediaEl.appendChild(video); };
         video.onerror = () => tryLoadMedia(mediaEl, formatIndex + 1);
         return;
     }
 
     const img = new Image();
-    img.onload = () => {
-        mediaEl.innerHTML = '';
-        mediaEl.appendChild(img);
-    };
+    img.onload = () => { mediaEl.innerHTML = ''; mediaEl.appendChild(img); };
     img.onerror = () => tryLoadMedia(mediaEl, formatIndex + 1);
     img.src = src;
 }
@@ -311,10 +289,7 @@ function handleBookingSubmit(event) {
     let finalService = serviceValue;
     if (serviceValue === 'Other') {
         const otherText = document.getElementById('b-other-service').value.trim();
-        if (!otherText) {
-            alert('Please describe your problem.');
-            return;
-        }
+        if (!otherText) { alert('Please describe your problem.'); return; }
         finalService = `Other: ${otherText}`;
     }
 
@@ -338,7 +313,7 @@ Please confirm. Thanks!`;
     if (dateEl.getSelectedDate) initCalendar('booking-calendar');
 }
 
-// ==================== SMS MODAL (без даты) ====================
+// ==================== SMS MODAL (с именем) ====================
 function openSmsModal() {
     const modal = document.getElementById('sms-modal');
     if (modal) modal.classList.remove('hidden');
@@ -352,6 +327,7 @@ function closeSmsModal() {
 function handleSmsSubmit(event) {
     event.preventDefault();
 
+    const name = document.getElementById('sms-name').value.trim();
     const brand = document.getElementById('sms-brand').value.trim();
     const model = document.getElementById('sms-model').value.trim();
     const year = document.getElementById('sms-year').value.trim();
@@ -360,6 +336,7 @@ function handleSmsSubmit(event) {
     const message =
 `Hi Aleks, I need help with my car.
 
+👤 Name: ${name}
 🚗 Vehicle: ${brand} ${model} (${year})
 🔧 Problem: ${problem}
 
@@ -429,7 +406,6 @@ function initReviewsCarousel() {
     leftBtn.onclick = goPrev;
     rightBtn.onclick = goNext;
 
-    // ===== СВАЙП (TOUCH) =====
     carousel.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
     }, { passive: true });
@@ -437,12 +413,9 @@ function initReviewsCarousel() {
     carousel.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
         const delta = touchEndX - touchStartX;
-        const threshold = 50;
-
-        if (Math.abs(delta) < threshold) return;
-
-        if (delta < 0) goNext();   // свайп влево → следующий
-        else goPrev();             // свайп вправо → предыдущий
+        if (Math.abs(delta) < 50) return;
+        if (delta < 0) goNext();
+        else goPrev();
     }, { passive: true });
 
     updateCarousel();
@@ -489,9 +462,7 @@ function loadWorkGallery() {
             const title = TITLES[(i - 1) % TITLES.length];
             const card = document.createElement('div');
             card.className = 'bg-cardBg border border-gray-800 rounded-2xl overflow-hidden shadow-xl reveal active';
-            card.innerHTML = `
-                <img src="${src}" alt="${title}" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
-            `;
+            card.innerHTML = `<img src="${src}" alt="${title}" class="w-full h-64 object-cover hover:scale-105 transition duration-500">`;
             gallery.appendChild(card);
             tryLoad(i + 1);
         };

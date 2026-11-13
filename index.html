@@ -147,7 +147,7 @@
 <section id="work" class="py-20 bg-darkBg border-b border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-3 reveal">
-            <h2 class="text-3xl sm:text-4xl font-heading font-black text-white">IMAGES OF OUR WORK</h2>
+            <h2 class="text-3xl sm:text-4xl font-heading font-black text-white">OUR WORK</h2>
         </div>
         <div id="work-gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         <div class="text-center mt-12 reveal">
@@ -370,6 +370,10 @@ The price was very fair, especially for such convenient mobile service. It’s n
             <p class="text-gray-400 text-xs mt-1">Fill this out — your SMS app will open with the message ready.</p>
         </div>
         <form id="sms-form" onsubmit="handleSmsSubmit(event)" class="space-y-4">
+            <div>
+                <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Your Name</label>
+                <input type="text" id="sms-name" required class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="John Doe">
+            </div>
             <div class="grid grid-cols-2 gap-4">
                 <div><label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Car Brand</label><input type="text" id="sms-brand" required class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="e.g. Toyota"></div>
                 <div><label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Model</label><input type="text" id="sms-model" required class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="e.g. Camry"></div>
