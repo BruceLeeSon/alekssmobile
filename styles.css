@@ -56,6 +56,7 @@ section {
     align-items: center;
     flex-shrink: 0;
     margin-left: 10px;
+    text-decoration: none;
 }
 
 @media (max-width: 767px) {
@@ -66,12 +67,9 @@ section {
     height: 80px;
     width: auto;
     object-fit: contain;
-    transition: transform 0.3s ease;
 }
 
-@media (max-width: 767px) { .header-logo { height: 60px; } }
-
-.logo-link:hover .header-logo { transform: scale(1.05); }
+@media (max-width: 767px) { .header-logo { height: 56px; } }
 
 .nav-links {
     display: none;
@@ -315,7 +313,7 @@ section {
 @media (min-width: 1024px) { .hero-container { padding: 8rem 1rem; } }
 
 @media (max-width: 767px) {
-    .hero-container { padding: 1.25rem 1rem 1rem 1rem; }
+    .hero-container { padding: 0.25rem 1rem 1rem 1rem; }
     .hero-title { font-size: 1.75rem !important; margin-bottom: 0.5rem; }
     .hero-subtitle { font-size: 0.9rem !important; margin-bottom: 1rem; }
     .hero-buttons { gap: 0.5rem; }
@@ -394,6 +392,26 @@ section {
 }
 
 @media (min-width: 640px) { .hero-subtitle { font-size: 1.25rem; } }
+
+/* WE COME TO YOU (hero, увеличен, курсив, жёлтый) */
+.hero-we-come-small {
+    display: inline-block;
+    color: #FFC107;
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.2;
+    margin-top: 0.35rem;
+    /* text-transform убран — отображается как в HTML */
+}
+
+@media (min-width: 640px) {
+    .hero-we-come-small { font-size: 1.4rem; }
+}
+
+@media (max-width: 767px) {
+    .hero-we-come-small { font-size: 1.1rem; margin-top: 0.25rem; }
+}
 
 .hero-buttons {
     display: flex;
@@ -534,6 +552,74 @@ section {
     .instagram-cta-btn i { font-size: 1.2rem; }
 }
 
+/* ==================== ОТЗЫВЫ (КАРУСЕЛЬ НА МОБИЛЬНЫХ) ==================== */
+.reviews-carousel-wrapper {
+    position: relative;
+    padding: 0 50px;
+}
+
+.reviews-carousel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+@media (max-width: 1023px) {
+    .reviews-carousel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .reviews-carousel {
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .reviews-carousel .review-card {
+        width: 100%;
+        margin: 0;
+        animation: fadeIn 0.3s ease;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.reviews-arrow {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FFC107, #ffb300);
+    color: #000;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.45);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.reviews-arrow:hover {
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 10px 28px rgba(255, 193, 7, 0.6);
+}
+
+@media (max-width: 767px) {
+    .reviews-arrow { display: flex; }
+    .reviews-arrow-left { left: 0; }
+    .reviews-arrow-right { right: 0; }
+}
+
 /* ==================== АНИМАЦИИ ==================== */
 .reveal {
     opacity: 0;
@@ -627,7 +713,7 @@ section {
     }
 }
 
-/* ==================== МОДАЛКА ==================== */
+/* ==================== МОДАЛКА (iOS-ФИКС) ==================== */
 .booking-modal {
     position: fixed;
     inset: 0;
@@ -640,6 +726,8 @@ section {
     justify-content: center;
     padding: 16px;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
 }
 
 .booking-modal.hidden { display: none; }
@@ -657,6 +745,9 @@ section {
     position: relative;
     animation: modalIn 0.3s ease forwards;
     margin: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
 }
 
 @keyframes modalIn {
@@ -855,4 +946,79 @@ section {
 
 @media (max-width: 640px) {
     .review-text { -webkit-line-clamp: 3; }
+}
+
+/* ==================== FOOTER LOGO ==================== */
+.logo-link-footer {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.logo-link-footer img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    margin: 0 auto 1rem;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .logo-link-footer img {
+        margin: 0 0 1rem 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .logo-link-footer img {
+        height: 44px;
+    }
+}
+
+/* ==================== FOOTER WE COME TO YOU ==================== */
+.footer-we-come {
+    display: block;
+    color: #FFC107;
+    font-weight: 800;
+    font-style: italic;
+    margin-top: 0.5rem;
+    letter-spacing: 0.03em;
+    /* text-transform убран — отображается как в HTML */
+}
+
+/* ==================== FOOTER CONTACTS (вертикальное выравнивание) ==================== */
+.footer-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-contacts p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: left;
+}
+
+@media (max-width: 767px) {
+    .footer-contacts {
+        align-items: center;
+    }
+    .footer-contacts p {
+        justify-content: flex-start;
+        width: 100%;
+        max-width: 260px;
+    }
+}
+
+/* ==================== MADE BY ==================== */
+.made-by-link {
+    color: #F2F4F6;
+    text-decoration: none;
+    font-weight: 600;
+    font-style: italic;
+    transition: color 0.2s ease;
+}
+
+.made-by-link:hover {
+    color: #FFC107;
 }

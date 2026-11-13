@@ -78,7 +78,7 @@
 
                 <p class="hero-subtitle">
                     On-Site Tire, Wheel and Light Mechanical Services —<br>
-                    <span class="text-safetyYellow font-bold">We Come To You!</span>
+                    <span class="hero-we-come-small">We Come TO YOU!</span>
                 </p>
 
                 <div class="hero-buttons">
@@ -139,11 +139,7 @@
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-3 reveal">
             <h2 class="text-3xl sm:text-4xl font-heading font-black text-white">IMAGES OF OUR WORK</h2>
         </div>
-
-        <!-- Галерея -->
         <div id="work-gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-
-        <!-- Кнопка "MORE WORKS IN INSTAGRAM" -->
         <div class="text-center mt-12 reveal">
             <a href="https://www.instagram.com/alekssmobilewheel" target="_blank" rel="noopener noreferrer" class="instagram-cta-btn">
                 <i class="fa-brands fa-instagram"></i>
@@ -157,79 +153,88 @@
 <section id="reviews" class="py-20 bg-[#161616] border-t border-b border-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-12 space-y-3 reveal">
+            <span class="text-safetyYellow font-bold tracking-widest uppercase text-sm">Testimonials</span>
             <h2 class="text-3xl sm:text-4xl font-heading font-black text-white">WHAT OUR CLIENTS SAY</h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Review 1 - Jake -->
-            <div class="review-card bg-cardBg border border-gray-800 rounded-2xl p-6 shadow-xl reveal flex flex-col">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-10 h-10 bg-safetyYellow/20 rounded-full flex items-center justify-center text-safetyYellow font-bold">J</div>
-                    <div>
-                        <p class="text-white font-bold text-sm">Jake</p>
-                        <div class="flex text-safetyYellow text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        <div class="reviews-carousel-wrapper">
+            <button class="reviews-arrow reviews-arrow-left" type="button" aria-label="Previous review">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="reviews-carousel" id="reviews-carousel">
+                <!-- Review 1 - Jake -->
+                <div class="review-card bg-cardBg border border-gray-800 rounded-2xl p-6 shadow-xl reveal flex flex-col">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-safetyYellow/20 rounded-full flex items-center justify-center text-safetyYellow font-bold">J</div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Jake</p>
+                            <div class="flex text-safetyYellow text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
                         </div>
                     </div>
+                    <p class="review-text text-gray-300 text-sm leading-relaxed flex-1">
+                        Aleks was great! I had a nail in my tire and didn’t feel safe driving on it, so I was glad he could come to me on a Saturday night. He showed up right on time, was professional the whole way through, and had the flat fixed in about 20–30 minutes. Fast, reliable, and easy to work with. I’d definitely recommend him to anyone who needs a tire repair without the hassle of getting to a shop.
+                    </p>
+                    <div class="flex items-center justify-between mt-3 gap-2">
+                        <button class="review-toggle hidden text-safetyYellow font-bold text-xs hover:underline">See more...</button>
+                        <a href="https://maps.app.goo.gl/mfx9thVmWzjMF3mP7" target="_blank" rel="noopener noreferrer" class="review-open ml-auto inline-flex items-center gap-1.5 text-xs font-bold text-black bg-safetyYellow hover:bg-safetyYellowHover px-3 py-1.5 rounded-full transition">
+                            Open <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
                 </div>
-                <p class="review-text text-gray-300 text-sm leading-relaxed flex-1">
-                    Aleks was great! I had a nail in my tire and didn’t feel safe driving on it, so I was glad he could come to me on a Saturday night. He showed up right on time, was professional the whole way through, and had the flat fixed in about 20–30 minutes. Fast, reliable, and easy to work with. I’d definitely recommend him to anyone who needs a tire repair without the hassle of getting to a shop.
-                </p>
-                <div class="flex items-center justify-between mt-3 gap-2">
-                    <button class="review-toggle hidden text-safetyYellow font-bold text-xs hover:underline">See more...</button>
-                    <a href="https://maps.app.goo.gl/mfx9thVmWzjMF3mP7" target="_blank" rel="noopener noreferrer" class="review-open ml-auto inline-flex items-center gap-1.5 text-xs font-bold text-black bg-safetyYellow hover:bg-safetyYellowHover px-3 py-1.5 rounded-full transition">
-                        Open <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                </div>
-            </div>
 
-            <!-- Review 2 - Christopher Samai -->
-            <div class="review-card bg-cardBg border border-gray-800 rounded-2xl p-6 shadow-xl reveal flex flex-col">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-10 h-10 bg-safetyYellow/20 rounded-full flex items-center justify-center text-safetyYellow font-bold">C</div>
-                    <div>
-                        <p class="text-white font-bold text-sm">Christopher Samai</p>
-                        <div class="flex text-safetyYellow text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <!-- Review 2 - Christopher Samai -->
+                <div class="review-card bg-cardBg border border-gray-800 rounded-2xl p-6 shadow-xl reveal flex flex-col">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-safetyYellow/20 rounded-full flex items-center justify-center text-safetyYellow font-bold">C</div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Christopher Samai</p>
+                            <div class="flex text-safetyYellow text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <p class="review-text text-gray-300 text-sm leading-relaxed flex-1">
-                    Aleks came to the rescue after a tire of mine had a hole popped in it. The only place open at 7PM was him, and he 100% delivered.
+                    <p class="review-text text-gray-300 text-sm leading-relaxed flex-1">
+                        Aleks came to the rescue after a tire of mine had a hole popped in it. The only place open at 7PM was him, and he 100% delivered.
 
 Between call and arrival it was maybe 10 minutes. The price was fair, especially for such convenient mobile service. It’s not easy to find someone who is both skilled and honest, but this was exactly that. I highly recommend this service to anyone looking for a professional tire repair, and balancing. He moves with speed, precision and excellence ... I could tell he was beyond experienced at what he does. Well worth the cost.
-                </p>
-                <div class="flex items-center justify-between mt-3 gap-2">
-                    <button class="review-toggle hidden text-safetyYellow font-bold text-xs hover:underline">See more...</button>
-                    <a href="https://maps.app.goo.gl/j2dMfXDcAVbKucTV7" target="_blank" rel="noopener noreferrer" class="review-open ml-auto inline-flex items-center gap-1.5 text-xs font-bold text-black bg-safetyYellow hover:bg-safetyYellowHover px-3 py-1.5 rounded-full transition">
-                        Open <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Review 3 - Natali Mukhamedova -->
-            <div class="review-card bg-cardBg border border-gray-800 rounded-2xl p-6 shadow-xl reveal flex flex-col">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-10 h-10 bg-safetyYellow/20 rounded-full flex items-center justify-center text-safetyYellow font-bold">N</div>
-                    <div>
-                        <p class="text-white font-bold text-sm">Natali Mukhamedova</p>
-                        <div class="flex text-safetyYellow text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
+                    </p>
+                    <div class="flex items-center justify-between mt-3 gap-2">
+                        <button class="review-toggle hidden text-safetyYellow font-bold text-xs hover:underline">See more...</button>
+                        <a href="https://maps.app.goo.gl/j2dMfXDcAVbKucTV7" target="_blank" rel="noopener noreferrer" class="review-open ml-auto inline-flex items-center gap-1.5 text-xs font-bold text-black bg-safetyYellow hover:bg-safetyYellowHover px-3 py-1.5 rounded-full transition">
+                            Open <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
                     </div>
                 </div>
-                <p class="review-text text-gray-300 text-sm leading-relaxed flex-1">
-                    I had an excellent experience with this mobile tire service! He came to my location right on time and did an outstanding job. He mounted and balanced all four tires professionally, worked quickly, and paid great attention to every detail. Everything was done with high-quality equipment, and the whole process was smooth and efficient.
+
+                <!-- Review 3 - Natali Mukhamedova -->
+                <div class="review-card bg-cardBg border border-gray-800 rounded-2xl p-6 shadow-xl reveal flex flex-col">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-safetyYellow/20 rounded-full flex items-center justify-center text-safetyYellow font-bold">N</div>
+                        <div>
+                            <p class="text-white font-bold text-sm">Natali Mukhamedova</p>
+                            <div class="flex text-safetyYellow text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text text-gray-300 text-sm leading-relaxed flex-1">
+                        I had an excellent experience with this mobile tire service! He came to my location right on time and did an outstanding job. He mounted and balanced all four tires professionally, worked quickly, and paid great attention to every detail. Everything was done with high-quality equipment, and the whole process was smooth and efficient.
 
 The price was very fair, especially for such convenient mobile service. It’s not easy to find someone who is both skilled and honest, but this was exactly that. I highly recommend this service to anyone looking for professional tire installation and balancing. I will definitely use them again. Thank you for the excellent work!
-                </p>
-                <div class="flex items-center justify-between mt-3 gap-2">
-                    <button class="review-toggle hidden text-safetyYellow font-bold text-xs hover:underline">See more...</button>
-                    <a href="https://maps.app.goo.gl/nWiSW26JdBq6pRXY8" target="_blank" rel="noopener noreferrer" class="review-open ml-auto inline-flex items-center gap-1.5 text-xs font-bold text-black bg-safetyYellow hover:bg-safetyYellowHover px-3 py-1.5 rounded-full transition">
-                        Open <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
+                    </p>
+                    <div class="flex items-center justify-between mt-3 gap-2">
+                        <button class="review-toggle hidden text-safetyYellow font-bold text-xs hover:underline">See more...</button>
+                        <a href="https://maps.app.goo.gl/nWiSW26JdBq6pRXY8" target="_blank" rel="noopener noreferrer" class="review-open ml-auto inline-flex items-center gap-1.5 text-xs font-bold text-black bg-safetyYellow hover:bg-safetyYellowHover px-3 py-1.5 rounded-full transition">
+                            Open <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
+            <button class="reviews-arrow reviews-arrow-right" type="button" aria-label="Next review">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
         </div>
     </div>
 </section>
@@ -259,14 +264,19 @@ The price was very fair, especially for such convenient mobile service. It’s n
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center text-center md:text-left">
             <div>
-                <img src="img/logo.png" alt="Logo" class="h-12 mx-auto md:mx-0 mb-4 object-contain">
-                <p class="text-sm text-gray-400">Professional mobile tire and mechanic service.<br><b>WE COME TO YOU!</b></p>
+                <a href="#" class="logo-link-footer">
+                    <img src="img/logo.png" alt="Logo" class="h-12 mx-auto md:mx-0 mb-4 object-contain">
+                </a>
+                <p class="text-sm text-gray-400">
+                    Professional mobile tire and mechanic service.
+                    <span class="footer-we-come">We Come TO YOU!</span>
+                </p>
             </div>
-            <div class="space-y-2 text-sm text-gray-300">
-                <p class="flex items-center justify-center md:justify-start gap-2"><i class="fa-solid fa-phone text-safetyYellow"></i> <a href="tel:+19168606330" class="hover:text-white font-bold">+1 (916) 860-6330</a></p>
-                <p class="flex items-center justify-center md:justify-start gap-2"><i class="fa-solid fa-comment-dots text-safetyYellow"></i> <a href="#" onclick="openSmsModal(); return false;" class="hover:text-white font-bold">Text Us</a></p>
-                <p class="flex items-center justify-center md:justify-start gap-2"><i class="fa-solid fa-envelope text-safetyYellow"></i> <a href="mailto:aleksmws@gmail.com" class="hover:text-white">aleksmws@gmail.com</a></p>
-                <p class="flex items-center justify-center md:justify-start gap-2"><i class="fa-brands fa-instagram text-safetyYellow"></i><a href="https://www.instagram.com/alekssmobilewheel" target="_blank" rel="noopener noreferrer" class="hover:text-white">@alekssmobilewheel</a></p>
+            <div class="footer-contacts text-sm text-gray-300">
+                <p><i class="fa-solid fa-phone text-safetyYellow"></i> <a href="tel:+19168606330" class="hover:text-white font-bold">+1 (916) 860-6330</a></p>
+                <p><i class="fa-solid fa-comment-dots text-safetyYellow"></i> <a href="#" onclick="openSmsModal(); return false;" class="hover:text-white font-bold">Text Us</a></p>
+                <p><i class="fa-solid fa-envelope text-safetyYellow"></i> <a href="mailto:aleksmws@gmail.com" class="hover:text-white">aleksmws@gmail.com</a></p>
+                <p><i class="fa-brands fa-instagram text-safetyYellow"></i><a href="https://www.instagram.com/alekssmobilewheel" target="_blank" rel="noopener noreferrer" class="hover:text-white">@alekssmobilewheel</a></p>
             </div>
             <div class="text-center md:text-right">
                 <button onclick="openBookingModal()" class="bg-safetyYellow hover:bg-safetyYellowHover text-black font-extrabold px-6 py-3 rounded-xl shadow transition">Book a Service Today</button>
@@ -274,7 +284,8 @@ The price was very fair, especially for such convenient mobile service. It’s n
         </div>
         <div class="mt-12 pt-8 border-t border-gray-900 text-center">
             <p class="text-xs text-gray-500">&copy; 2026 Aleks's Mobile Wheel Service. All rights reserved.</p>
-            <p class="text-xs text-gray-600 mt-2">Made by <span class="text-gray-400">David Kalaidzhan</span></p>
+            <br>
+            <p class="text-xs">Made by <a href="sms:+12792971420" class="made-by-link"><em>David Kalaidzhan</em></a></p>
         </div>
     </div>
 </footer>
@@ -306,6 +317,20 @@ The price was very fair, especially for such convenient mobile service. It’s n
                     </select>
                 </div>
             </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Car Brand</label>
+                    <input type="text" id="b-brand" required class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="e.g. Toyota">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Model</label>
+                    <input type="text" id="b-model" required class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="e.g. Camry">
+                </div>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Year</label>
+                <input type="number" id="b-year" required min="1900" max="2030" class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="e.g. 2018">
+            </div>
             <div id="other-service-wrapper" class="hidden">
                 <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Describe Your Problem</label>
                 <textarea id="b-other-service" rows="3" class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow resize-none" placeholder="Tell us what's wrong with your car..."></textarea>
@@ -336,15 +361,11 @@ The price was very fair, especially for such convenient mobile service. It’s n
         </div>
         <form id="sms-form" onsubmit="handleSmsSubmit(event)" class="space-y-4">
             <div class="grid grid-cols-2 gap-4">
-                <div><label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Brand</label><input type="text" id="sms-brand" required class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="e.g. Toyota"></div>
+                <div><label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Car Brand</label><input type="text" id="sms-brand" required class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="e.g. Toyota"></div>
                 <div><label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Model</label><input type="text" id="sms-model" required class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="e.g. Camry"></div>
             </div>
             <div><label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Year</label><input type="number" id="sms-year" required min="1900" max="2030" class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow" placeholder="e.g. 2018"></div>
             <div><label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Problem Description</label><textarea id="sms-problem" required rows="3" class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow resize-none" placeholder="Describe the issue..."></textarea></div>
-            <div>
-                <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Preferred Date</label>
-                <div id="sms-calendar"></div>
-            </div>
             <button type="submit" class="w-full bg-safetyYellow hover:bg-safetyYellowHover text-black font-extrabold py-3.5 rounded-xl shadow transition mt-2 flex items-center justify-center gap-2"><i class="fa-solid fa-comment-dots"></i> Open SMS App</button>
         </form>
     </div>

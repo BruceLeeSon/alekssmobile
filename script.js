@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     initCalendar('booking-calendar');
-    initCalendar('sms-calendar');
+    initReviewsCarousel();
 
     const animated = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
     if (animated.length) {
@@ -299,6 +299,9 @@ function handleBookingSubmit(event) {
 
     const name = document.getElementById('b-name').value.trim();
     const phone = document.getElementById('b-phone').value.trim();
+    const brand = document.getElementById('b-brand').value.trim();
+    const model = document.getElementById('b-model').value.trim();
+    const year = document.getElementById('b-year').value.trim();
     const serviceValue = document.getElementById('b-service').value;
     const location = document.getElementById('b-location').value.trim();
     const dateEl = document.getElementById('booking-calendar');
@@ -320,6 +323,7 @@ function handleBookingSubmit(event) {
 
 👤 Name: ${name}
 📞 Phone: ${phone}
+🚗 Vehicle: ${brand} ${model} (${year})
 🔧 Service: ${finalService}
 📍 Location: ${location}
 📅 Preferred date: ${dateFormatted}
@@ -334,7 +338,7 @@ Please confirm. Thanks!`;
     if (dateEl.getSelectedDate) initCalendar('booking-calendar');
 }
 
-// ==================== SMS MODAL ====================
+// ==================== SMS MODAL (без даты) ====================
 function openSmsModal() {
     const modal = document.getElementById('sms-modal');
     if (modal) modal.classList.remove('hidden');
@@ -352,21 +356,97 @@ function handleSmsSubmit(event) {
     const model = document.getElementById('sms-model').value.trim();
     const year = document.getElementById('sms-year').value.trim();
     const problem = document.getElementById('sms-problem').value.trim();
-    const dateEl = document.getElementById('sms-calendar');
-    const dateRaw = dateEl.getSelectedDate ? dateEl.getSelectedDate() : null;
-    const dateFormatted = formatDateForMessage(dateRaw);
 
     const message =
 `Hi Aleks, I need help with my car.
 
 🚗 Vehicle: ${brand} ${model} (${year})
 🔧 Problem: ${problem}
-📅 Preferred date: ${dateFormatted}
 
 Please let me know if this works. Thanks!`;
 
     window.location.href = `sms:+19168606330?body=${encodeURIComponent(message)}`;
     closeSmsModal();
+}
+
+// ==================== КАРУСЕЛЬ ОТЗЫВОВ (СТРЕЛКИ + СВАЙП) ====================
+let currentReviewIndex = 0;
+
+function initReviewsCarousel() {
+    const carousel = document.getElementById('reviews-carousel');
+    const leftBtn = document.querySelector('.reviews-arrow-left');
+    const rightBtn = document.querySelector('.reviews-arrow-right');
+    if (!carousel || !leftBtn || !rightBtn) return;
+
+    const cards = carousel.querySelectorAll('.review-card');
+    if (!cards.length) return;
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function updateCarousel() {
+        if (window.innerWidth > 767) {
+            carousel.style.transform = 'none';
+            cards.forEach(c => c.style.display = 'flex');
+            leftBtn.style.display = 'none';
+            rightBtn.style.display = 'none';
+            return;
+        }
+
+        leftBtn.style.display = 'flex';
+        rightBtn.style.display = 'flex';
+
+        cards.forEach((card, index) => {
+            if (index === currentReviewIndex) {
+                card.style.display = 'flex';
+                card.style.animation = 'fadeIn 0.3s ease';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        leftBtn.style.opacity = currentReviewIndex === 0 ? '0.4' : '1';
+        leftBtn.style.pointerEvents = currentReviewIndex === 0 ? 'none' : 'auto';
+
+        rightBtn.style.opacity = currentReviewIndex === cards.length - 1 ? '0.4' : '1';
+        rightBtn.style.pointerEvents = currentReviewIndex === cards.length - 1 ? 'none' : 'auto';
+    }
+
+    function goNext() {
+        if (currentReviewIndex < cards.length - 1) {
+            currentReviewIndex++;
+            updateCarousel();
+        }
+    }
+
+    function goPrev() {
+        if (currentReviewIndex > 0) {
+            currentReviewIndex--;
+            updateCarousel();
+        }
+    }
+
+    leftBtn.onclick = goPrev;
+    rightBtn.onclick = goNext;
+
+    // ===== СВАЙП (TOUCH) =====
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const delta = touchEndX - touchStartX;
+        const threshold = 50;
+
+        if (Math.abs(delta) < threshold) return;
+
+        if (delta < 0) goNext();   // свайп влево → следующий
+        else goPrev();             // свайп вправо → предыдущий
+    }, { passive: true });
+
+    updateCarousel();
+    window.addEventListener('resize', updateCarousel);
 }
 
 // ==================== FAQ ====================
@@ -409,7 +489,6 @@ function loadWorkGallery() {
             const title = TITLES[(i - 1) % TITLES.length];
             const card = document.createElement('div');
             card.className = 'bg-cardBg border border-gray-800 rounded-2xl overflow-hidden shadow-xl reveal active';
-            // БЕЗ ТЕКСТА — только фото в рамке
             card.innerHTML = `
                 <img src="${src}" alt="${title}" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
             `;
