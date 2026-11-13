@@ -64,6 +64,12 @@
     <div class="hero-container">
         <div class="hero-grid">
             <div class="hero-content reveal-left">
+
+                <!-- ЛОГОТИП ВМЕСТО ONLY SACRAMENTO AREA -->
+                <div class="hero-logo-top">
+                    <img src="img/logo.png" alt="Aleks's Mobile Wheel Service">
+                </div>
+
                 <h1 class="hero-title">
                     Mobile Tire & <br><span class="text-safetyYellow">Wheel Service</span>
                 </h1>
@@ -78,6 +84,12 @@
                     <button onclick="openSmsModal()" class="btn-sms"><i class="fa-solid fa-comment-dots"></i> Text Us</button>
                     <a href="tel:+19168606330" class="btn-secondary"><i class="fa-solid fa-phone"></i><span>Call Now</span></a>
                 </div>
+
+                <!-- БЛОК С ЛОКАЦИЯМИ (под кнопками) -->
+                <div class="hero-locations">
+                    <img src="img/locations.png" alt="Serving Greater Sacramento & Surrounding Areas">
+                </div>
+
             </div>
         </div>
     </div>
@@ -281,15 +293,7 @@ The price was very fair, especially for such convenient mobile service. It’s n
                 <div>
                     <label class="block text-xs font-semibold uppercase text-gray-300 mb-1">Service Needed</label>
                     <select id="b-service" onchange="toggleOtherService()" class="w-full bg-[#121212] border border-gray-700 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-safetyYellow">
-                        <option value="Selection & Sale of New Tires">Selection & Sale of New Tires</option>
-                        <option value="Tire Mounting & Demounting">Tire Mounting & Demounting</option>
-                        <option value="Wheel Balancing">Wheel Balancing</option>
-                        <option value="TPMS Replacement & Programming">TPMS Replacement & Programming</option>
-                        <option value="Computer Diagnostics">Computer Diagnostics</option>
-                        <option value="Brake Pads & Rotor Replacement">Brake Pads & Rotor Replacement</option>
-                        <option value="Suspension Repair & Component Replacement">Suspension Repair & Component Replacement</option>
-                        <option value="Oil Change">Oil Change</option>
-                        <option value="Other">Other / Custom Problem</option>
+                        <!-- Опции генерируются из services-config.js -->
                     </select>
                 </div>
             </div>
@@ -342,6 +346,7 @@ The price was very fair, especially for such convenient mobile service. It’s n
     <div><h4 class="font-bold text-sm">Request Sent Successfully!</h4><p class="text-xs text-gray-400">Aleks will call you shortly.</p></div>
 </div>
 
+<script src="services-config.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

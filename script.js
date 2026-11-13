@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     loadWorkGallery();
     renderServiceCards();
+    populateServiceSelect();
 
     // See more / See less для отзывов
     document.querySelectorAll('.review-card').forEach(card => {
@@ -164,16 +165,12 @@ function renderServiceCards() {
     const grid = document.getElementById('services-grid');
     if (!grid) return;
 
-    const services = [
-        { name: 'Selection & Sale of New Tires', file: 'tire-sale', icon: 'fa-circle-notch' },
-        { name: 'Tire Mounting & Demounting', file: 'tire-mounting', icon: 'fa-screwdriver-wrench' },
-        { name: 'Wheel Balancing', file: 'wheel-balancing', icon: 'fa-circle-dot' },
-        { name: 'TPMS Replacement & Programming', file: 'tpms', icon: 'fa-triangle-exclamation' },
-        { name: 'Computer Diagnostics', file: 'diagnostics', icon: 'fa-laptop-code' },
-        { name: 'Brake Pads & Rotor Replacement', file: 'brakes', icon: 'fa-car-burst' },
-        { name: 'Suspension Repair & Component Replacement', file: 'suspension', icon: 'fa-car-side' },
-        { name: 'Oil Change', file: 'oil-change', icon: 'fa-oil-can' }
-    ];
+    const services = typeof SERVICES_CONFIG !== 'undefined' ? SERVICES_CONFIG : [];
+
+    if (!services.length) {
+        grid.innerHTML = '<p class="col-span-full text-center text-gray-500 text-sm">No services configured.</p>';
+        return;
+    }
 
     grid.innerHTML = services.map(svc => `
         <div onclick="openBookingModal('${svc.name}')" class="service-card bg-cardBg hover:bg-cardHover border border-gray-800 hover:border-safetyYellow p-6 rounded-2xl text-center transition duration-300 shadow-md cursor-pointer group reveal">
@@ -200,6 +197,31 @@ function renderServiceCards() {
     }
 }
 
+// ==================== ЗАПОЛНЕНИЕ SELECT В ФОРМЕ ====================
+function populateServiceSelect() {
+    const select = document.getElementById('b-service');
+    if (!select) return;
+
+    const services = (typeof SERVICES_CONFIG !== 'undefined' ? SERVICES_CONFIG : [])
+        .filter(svc => svc.showInForm !== false);
+
+    select.innerHTML = '';
+
+    services.forEach(svc => {
+        const opt = document.createElement('option');
+        opt.value = svc.name;
+        opt.textContent = svc.name;
+        select.appendChild(opt);
+    });
+
+    // "Other / Custom Problem" — всегда последняя
+    const optOther = document.createElement('option');
+    optOther.value = 'Other';
+    optOther.textContent = 'Other / Custom Problem';
+    select.appendChild(optOther);
+}
+
+// ==================== ЗАГРУЗКА МЕДИА ====================
 function tryLoadMedia(mediaEl, formatIndex) {
     const formats = ['gif', 'webp', 'mp4', 'webm'];
     const service = mediaEl.dataset.service;
