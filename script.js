@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     initCalendar('booking-calendar');
+
+    // Сначала отзывы, потом карусель
+    renderReviews();
     initReviewsCarousel();
 
     const animated = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
@@ -41,20 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
     loadWorkGallery();
     renderServiceCards();
     populateServiceSelect();
-
-    document.querySelectorAll('.review-card').forEach(card => {
-        const text = card.querySelector('.review-text');
-        const toggle = card.querySelector('.review-toggle');
-        if (!text || !toggle) return;
-
-        const isClamped = text.scrollHeight > text.clientHeight + 2;
-        if (isClamped) toggle.classList.remove('hidden');
-
-        toggle.addEventListener('click', () => {
-            const expanded = text.classList.toggle('expanded');
-            toggle.textContent = expanded ? 'See less...' : 'See more...';
-        });
-    });
 });
 
 // ==================== КАСТОМНЫЙ КАЛЕНДАРЬ ====================
@@ -182,6 +171,59 @@ function renderServiceCards() {
         }, { threshold: 0.1 });
         newAnimated.forEach(el => obs.observe(el));
     }
+}
+
+// ==================== РЕНДЕР ОТЗЫВОВ (С ГАРАНТИРОВАННЫМ SEE MORE) ====================
+function renderReviews() {
+    const carousel = document.getElementById('reviews-carousel');
+    if (!carousel) return;
+
+    if (typeof REVIEWS_CONFIG === 'undefined') {
+        carousel.innerHTML = '<p class="text-gray-500 text-sm text-center py-6">Ошибка: reviews-config.js не загружен.</p>';
+        return;
+    }
+
+    const reviews = REVIEWS_CONFIG;
+    if (!reviews.length) {
+        carousel.innerHTML = '<p class="text-gray-500 text-sm text-center py-6">No reviews yet.</p>';
+        return;
+    }
+
+    carousel.innerHTML = reviews.map(r => {
+        const stars = '<i class="fa-solid fa-star"></i>'.repeat(r.rating) +
+                      '<i class="fa-regular fa-star"></i>'.repeat(5 - r.rating);
+
+        // Показываем кнопку, если текст длиннее 130 символов
+        const showToggle = r.text.length > 130;
+
+        return `
+        <div class="review-card bg-cardBg border border-gray-800 rounded-2xl p-6 shadow-xl reveal flex flex-col">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-safetyYellow/20 rounded-full flex items-center justify-center text-safetyYellow font-bold">${r.initial}</div>
+                <div>
+                    <p class="text-white font-bold text-sm">${r.name}</p>
+                    <div class="flex text-safetyYellow text-xs">${stars}</div>
+                </div>
+            </div>
+            <p class="review-text text-gray-300 text-sm leading-relaxed flex-1">${r.text}</p>
+            <div class="flex items-center justify-between mt-3 gap-2">
+                <button class="review-toggle ${showToggle ? '' : 'hidden'} text-safetyYellow font-bold text-xs hover:underline">See more...</button>
+                <a href="${r.link}" target="_blank" rel="noopener noreferrer" class="review-open ml-auto inline-flex items-center gap-1.5 text-xs font-bold text-black bg-safetyYellow hover:bg-safetyYellowHover px-3 py-1.5 rounded-full transition">
+                    Open <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+        </div>
+        `;
+    }).join('');
+
+    // Обработчик клика
+    carousel.querySelectorAll('.review-toggle').forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const text = toggle.closest('.review-card').querySelector('.review-text');
+            const expanded = text.classList.toggle('expanded');
+            toggle.textContent = expanded ? 'See less...' : 'See more...';
+        });
+    });
 }
 
 // ==================== ЗАПОЛНЕНИЕ SELECT В ФОРМЕ ====================
@@ -313,7 +355,7 @@ Please confirm. Thanks!`;
     if (dateEl.getSelectedDate) initCalendar('booking-calendar');
 }
 
-// ==================== SMS MODAL (с именем) ====================
+// ==================== SMS MODAL ====================
 function openSmsModal() {
     const modal = document.getElementById('sms-modal');
     if (modal) modal.classList.remove('hidden');
@@ -346,7 +388,7 @@ Please let me know if this works. Thanks!`;
     closeSmsModal();
 }
 
-// ==================== КАРУСЕЛЬ ОТЗЫВОВ (СТРЕЛКИ + СВАЙП) ====================
+// ==================== КАРУСЕЛЬ ОТЗЫВОВ ====================
 let currentReviewIndex = 0;
 
 function initReviewsCarousel() {
@@ -356,7 +398,13 @@ function initReviewsCarousel() {
     if (!carousel || !leftBtn || !rightBtn) return;
 
     const cards = carousel.querySelectorAll('.review-card');
-    if (!cards.length) return;
+
+    if (cards.length <= 1) {
+        leftBtn.style.display = 'none';
+        rightBtn.style.display = 'none';
+        cards.forEach(c => c.style.display = 'flex');
+        return;
+    }
 
     let touchStartX = 0;
     let touchEndX = 0;
