@@ -214,7 +214,6 @@ function populateServiceSelect() {
         select.appendChild(opt);
     });
 
-    // "Other / Custom Problem" — всегда последняя
     const optOther = document.createElement('option');
     optOther.value = 'Other';
     optOther.textContent = 'Other / Custom Problem';
@@ -410,9 +409,9 @@ function loadWorkGallery() {
             const title = TITLES[(i - 1) % TITLES.length];
             const card = document.createElement('div');
             card.className = 'bg-cardBg border border-gray-800 rounded-2xl overflow-hidden shadow-xl reveal active';
+            // БЕЗ ТЕКСТА — только фото в рамке
             card.innerHTML = `
                 <img src="${src}" alt="${title}" class="w-full h-64 object-cover hover:scale-105 transition duration-500">
-                <div class="p-5"><h4 class="font-heading font-bold text-white text-lg mb-1">${title}</h4><p class="text-xs text-gray-400">Professional mobile service in action.</p></div>
             `;
             gallery.appendChild(card);
             tryLoad(i + 1);

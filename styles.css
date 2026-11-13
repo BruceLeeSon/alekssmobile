@@ -253,7 +253,6 @@ section {
     background-color: #0d0d0d;
 }
 
-/* --- Десктоп: картинка bg.png --- */
 @media (min-width: 768px) {
     .hero-section::before {
         content: '';
@@ -267,7 +266,6 @@ section {
     }
 }
 
-/* --- Мобильные: картинка bgmobile.png --- */
 @media (max-width: 767px) {
     .hero-section::before {
         content: '';
@@ -334,7 +332,7 @@ section {
 
 .hero-content { max-width: 600px; }
 
-/* ==================== HERO LOGO (в 1.5× больше) ==================== */
+/* ==================== HERO LOGO ==================== */
 .hero-logo-top {
     margin-bottom: 0.75rem;
     display: flex;
@@ -342,18 +340,18 @@ section {
 }
 
 .hero-logo-top img {
-    height: 4.95rem;          /* 3.3 × 1.5 */
+    height: 4.95rem;
     width: auto;
     object-fit: contain;
     display: block;
 }
 
 @media (min-width: 640px) {
-    .hero-logo-top img { height: 6.3rem; }     /* 4.2 × 1.5 */
+    .hero-logo-top img { height: 6.3rem; }
 }
 
 @media (min-width: 1024px) {
-    .hero-logo-top img { height: 7.65rem; }    /* 5.1 × 1.5 */
+    .hero-logo-top img { height: 7.65rem; }
 }
 
 @media (max-width: 767px) {
@@ -361,7 +359,7 @@ section {
         margin-bottom: 0.5rem;
     }
     .hero-logo-top img {
-        height: 5.6rem;        /* ← изменено с 3.9rem на 5.6rem */
+        height: 5.6rem;
     }
 }
 
@@ -420,11 +418,11 @@ section {
     justify-content: center;
     gap: 0.5rem;
     font-weight: 800;
-    font-size: 0.95rem;
-    padding: 0.6rem 1.5rem;
-    border-radius: 10px;
+    font-size: 1rem;
+    padding: 0.9rem 2.25rem;
+    border-radius: 12px;
     line-height: 1.2;
-    min-height: 40px;
+    min-height: 48px;
     transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
@@ -460,7 +458,6 @@ section {
 .btn-sms i { color: #FFC107; transition: color 0.3s ease; }
 .btn-sms:hover i { color: #000; }
 
-/* Мобильные: кнопки шире и на всю ширину */
 @media (max-width: 767px) {
     .btn-primary, .btn-secondary, .btn-sms {
         padding: 0.75rem 1.75rem;
@@ -485,9 +482,7 @@ section {
 }
 
 @media (max-width: 767px) {
-    .hero-locations {
-        margin-top: 1rem;
-    }
+    .hero-locations { margin-top: 1rem; }
 }
 
 /* ==================== SERVICES ==================== */
@@ -499,6 +494,45 @@ section {
 }
 
 @media (max-width: 767px) { .services-section { padding-top: 1.5rem; } }
+
+/* ==================== ИНСТАГРАМ-КНОПКА ==================== */
+.instagram-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(253, 29, 29, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.instagram-cta-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 14px 36px rgba(253, 29, 29, 0.5);
+    filter: brightness(1.1);
+}
+
+.instagram-cta-btn i { font-size: 1.4rem; }
+
+@media (max-width: 640px) {
+    .instagram-cta-btn {
+        width: 100%;
+        max-width: 360px;
+        font-size: 0.9rem;
+        padding: 0.9rem 1.5rem;
+        letter-spacing: 0.06em;
+    }
+    .instagram-cta-btn i { font-size: 1.2rem; }
+}
 
 /* ==================== АНИМАЦИИ ==================== */
 .reveal {
