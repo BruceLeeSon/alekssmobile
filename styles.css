@@ -393,7 +393,7 @@ section {
 
 @media (min-width: 640px) { .hero-subtitle { font-size: 1.25rem; } }
 
-/* WE COME TO YOU (hero, увеличен, курсив, жёлтый) */
+/* WE COME TO YOU (hero) */
 .hero-we-come-small {
     display: inline-block;
     color: #FFC107;
@@ -402,7 +402,6 @@ section {
     font-style: italic;
     line-height: 1.2;
     margin-top: 0.35rem;
-    /* text-transform убран — отображается как в HTML */
 }
 
 @media (min-width: 640px) {
@@ -877,12 +876,12 @@ section {
 
 .selected-date-display i { margin-right: 6px; }
 
-/* ==================== МЕДИА В УСЛУГАХ ==================== */
+/* ==================== МЕДИА В УСЛУГАХ (120×120) ==================== */
 .service-media {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 16px;
-    border-radius: 12px;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 16px;
     overflow: hidden;
     background: rgba(255, 193, 7, 0.08);
     display: flex;
@@ -907,7 +906,19 @@ section {
 
 .service-media .fallback-icon {
     color: #FFC107;
-    font-size: 26px;
+    font-size: 48px;
+}
+
+@media (max-width: 640px) {
+    .service-media {
+        width: 100px;
+        height: 100px;
+        border-radius: 14px;
+        margin-bottom: 16px;
+    }
+    .service-media .fallback-icon {
+        font-size: 40px;
+    }
 }
 
 /* ==================== OTHER SERVICE FIELD ==================== */
@@ -982,7 +993,6 @@ section {
     font-style: italic;
     margin-top: 0.5rem;
     letter-spacing: 0.03em;
-    /* text-transform убран — отображается как в HTML */
 }
 
 /* ==================== FOOTER CONTACTS (вертикальное выравнивание) ==================== */
