@@ -1036,3 +1036,8 @@ section {
 .made-by-link:hover {
     color: #e0a800;
 }
+
+/* Переопределение text-gray-400 */
+.text-gray-400 {
+    color: rgb(231 231 231) !important;
+}
